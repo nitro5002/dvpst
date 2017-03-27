@@ -1,0 +1,6 @@
+- name: Copy config
+  template: src=haproxy.cfg.j2 dest=/app/config/haproxy.cfg
+- name: Copy docker file
+  template: src=docker-compose.yml.j2 dest=/app/docker-compose.yml
+- name: Run application
+  command: docker-compose up -d

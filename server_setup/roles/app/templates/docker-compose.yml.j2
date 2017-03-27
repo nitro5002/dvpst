@@ -1,0 +1,10 @@
+dvpst:
+  image: dvpst
+  environment:
+    DB_DBNAME: {{db_dbname}}
+    DB_HOST: {{db_host}}
+    DB_USER: {{db_user}}
+    DB_PASS: {{db_pass}}
+    ENVIRONMENT: {{app_env}}
+    DB1_TCP=http://{{db_host}}:3306
+  restart: always

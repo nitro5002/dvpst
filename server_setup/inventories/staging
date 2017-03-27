@@ -1,0 +1,10 @@
+[apps]
+appserver1.stg.local
+appserver2.stg.local
+appserver3.stg.local
+
+[databases]
+db1.stg.local
+
+[proxy]
+p1.stg.local

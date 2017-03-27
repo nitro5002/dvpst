@@ -1,0 +1,10 @@
+[apps]
+appserver.prod.local
+appserver2.prod.local
+appserver3.prod.local
+
+[databases]
+db1.prod.local
+
+[proxy]
+p1.prod.local

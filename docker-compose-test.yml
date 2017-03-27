@@ -1,0 +1,21 @@
+dvpst:
+  build: .
+  links:
+    - db
+  environment:
+    ENVIRONMENT: tests
+    DB_DBNAME: test_db
+  volumes:
+    - ./:/var/www/dvpst
+    - /var/www/dvpst/vendor
+  command: bash -c './wait.sh && /usr/sbin/phpunit'
+
+db:
+  image: mysql
+  ports:
+    - "3306:3306"
+  environment:
+    MYSQL_ROOT_PASSWORD: root
+    MYSQL_DATABASE: test_db
+    MYSQL_USER: test
+    MYSQL_PASSWORD: test
