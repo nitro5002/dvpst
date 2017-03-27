@@ -1,0 +1,33 @@
+lb:
+  image: haproxy
+  volumes:
+    - ./dockerfiles/lb/haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg
+  links:
+    - dvpst
+  ports:
+    - "80:80"
+
+dvpst:
+  image: dvpst
+  links:
+    - db
+  environment:
+    DB_DBNAME: dev
+    DB_HOST: db
+    DB_USER: test
+    DB_PASS: test
+    ENVIRONMENT: development
+  volumes:
+    - ./:/var/www/dvpst
+    - /var/www/dvpst/vendor
+
+db:
+  image: mysql
+  container_name: db
+  ports:
+    - "3306:3306"
+  environment:
+    MYSQL_ROOT_PASSWORD: root
+    MYSQL_DATABASE: dev
+    MYSQL_USER: test
+    MYSQL_PASSWORD: test

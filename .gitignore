@@ -1,0 +1,6 @@
+### Composer template
+composer.lock
+/vendor/
+.idea/
+*.iws
+logs/
