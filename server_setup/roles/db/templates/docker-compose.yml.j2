@@ -1,0 +1,12 @@
+db:
+  image: mysql
+  container_name: db
+  ports:
+    - "3306:3306"
+  volumes:
+    - /app/db/:/var/lib/mysql/
+  environment:
+    MYSQL_ROOT_PASSWORD: {{db_user_root}}
+    MYSQL_DATABASE: {{db_dbname}}
+    MYSQL_USER: {{db_user}}
+    MYSQL_PASSWORD: {{db_pass}}

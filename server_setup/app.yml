@@ -1,0 +1,43 @@
+---
+# This playbook deploys the whole application stack in this site.
+
+- name: apply common configuration to all nodes
+  hosts: all
+  remote_user: "{{remote_user}}" //define user account for ssh login
+  become: yes
+  become_method: sudo
+  serial: 1          //define the action will be done one by one
+
+  roles:
+    - common
+
+- name: deploy and configure application
+  hosts: apps
+  remote_user: "{{remote_user}}" //define user account for ssh login
+  become: yes
+  become_method: sudo
+  serial: 1          //define the action will be done one by one
+
+  roles:
+    - app
+
+- name: deploy and configure database
+  hosts: databases
+  remote_user: "{{remote_user}}" //define user account for ssh login
+  become: yes
+  become_method: sudo
+  serial: 1          //define the action will be done one by one
+
+  roles:
+    - db
+
+- name: deploy and configure proxy
+  hosts: proxy
+  remote_user: "{{remote_user}}" //define user account for ssh login
+  become: yes
+  become_method: sudo
+  serial: 1          //define the action will be done one by one
+
+  roles:
+    - proxy
+

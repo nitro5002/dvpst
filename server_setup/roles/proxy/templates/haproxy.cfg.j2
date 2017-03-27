@@ -1,0 +1,15 @@
+global
+    daemon
+    maxconn 256
+
+defaults
+    mode http
+    timeout connect 5000ms
+    timeout client 50000ms
+    timeout server 50000ms
+
+listen http-in
+    bind *:80
+    server server1 {{proxy_app_server_1}}:80 maxconn 32
+    server server2 {{proxy_app_server_2}}:80 maxconn 32
+    server server3 {{proxy_app_server_3}}:80 maxconn 32

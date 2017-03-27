@@ -1,0 +1,7 @@
+lb:
+  image: haproxy
+  volumes:
+    - /app/config/haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg
+  ports:
+    - "80:80"
+  restart: always

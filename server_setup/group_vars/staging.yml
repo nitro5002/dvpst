@@ -1,0 +1,20 @@
+//user account used to ssh the hosts
+remote_user: ubuntu
+//non-sudo user to be created for running process
+action_user: spider
+//password for the non-sudo user, actually we can have better way to not storing the password in code, but this is for simplifying the tutorial.
+action_user_pw: __complicatedPW__
+
+ansible_ssh_private_key_file: __YOUR_SSH_KEY_FILE_PATH__
+
+proxy_app_server_1: appserver.stg.local
+proxy_app_server_2: appserver2.stg.local
+proxy_app_server_3: appserver3.stg.local
+
+db_dbname: tests
+db_user: test
+db_pass: test
+db_user_root: __PASS_TO_ROOT_USER__
+db_host: db1.stg.local
+
+app_env: staging
